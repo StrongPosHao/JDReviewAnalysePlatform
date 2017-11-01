@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+    <ul class="info">
+        {% for info in infos %}
+            <li>
+                <div class="info-group">
+                    <p class="info-id"><a href="#">{{ info.id }}</a></p>
+                    <p class="info-name">{{ info.content }}</p>
+                    <p class="info-body">{{ info.body }}</p>
+                    <p class="info-os">{{ info.os }}</p>
+                    <p class="info-CPU">{{ info.CPU }}</p>
+                    <p class="info-memory">{{ info.memory }}</p>
+                    <p class="info-hard_disk">{{ info.hard_disk }}</p>
+                    <p class="info-graphics_card">{{ info.graphics_card }}</p>
+                    <p class="info-drive">{{ info.drive }}</p>
+                    <p class="info-screen">{{ info.screen }}</p>
+                    <p class="info-net">{{ info.net }}</p>
+                    <p class="info-interface">{{ info.interface }}</p>
+                    <p class="info-Audio">{{ info.Audio }}</p>
+                    <p class="info-input">{{ info.input }}</p>
+                    <p class="info-other_dev">{{ info.other_dev }}</p>
+                    <p class="info-battery">{{ info.battery }}</p>
+                    <p class="info-size">{{ info.size }}</p>
+                    <p class="info-feature">{{ info.feature }}</p>
+                </div>
+            </li>
+        {% endfor %}
+
+        {% for review in reviews %}
+            <li>
+                <div class="review-group">
+                    <p class="review-id"><a href="#">{{ review.id }}</a></p>
+                    <p class="review-content">{{ review.content }}</p>
+                    <p class="review-username">{{ review.username }}</p>
+                    <p class="review-time">{{ review.time }}</p>
+                </div>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
