@@ -4,7 +4,7 @@ from flask_script import Manager
 from flask_migrate import Migrate,MigrateCommand
 from JDReviewAnalyzePlatform import app
 from exts import db
-from models import Information,User,Reviews
+from models import Product,User,Reviews
 
 manager = Manager(app)
 

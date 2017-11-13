@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviews{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block main %}
+    <h3 class="page-title">Reviews</h3>
+     {% for review in reviews %}
+        <ul>
+            <li>
+                <div class="review-group">
+                    <p class="review-id"><a href="#">{{ review.id }}</a></p>
+                    <p class="review-content">{{ review.content }}</p>
+                    <p class="review-username">{{ review.username }}</p>
+                    <p class="review-time">{{ review.time }}</p>
+                </div>
+            </li>
+        </ul>
+     {% endfor %}
+{% endblock %}
+
+
