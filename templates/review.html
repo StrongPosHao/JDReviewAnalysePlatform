@@ -1,0 +1,24 @@
+{% block head %}{% endblock %}
+
+{% block main %}
+    <h3 class="page-title">Reviews</h3>
+     {% for review in reviews %}
+        <ul>
+            <li>
+                <div class="review-group">
+                    <p class="review-id">{{ review.id }}</p>
+                    <p class="review-time">{{ review.time }}</p>
+                    <p class="review-content">{{ review.content }}</p>
+                    <p class="review-reply">{{ review.replyCount }}</p>
+                    <p class="review-useful">{{ review.usefulVoteCount }}</p>
+                    <p class="userExpValue">{{ review.userExpValue }}</p>
+                    <p class="review-score">{{ review.score }}</p>
+                    <p class="product_type">{{ review.product_type }}</p>
+                </div>
+            </li>
+        </ul>
+        <hr>
+     {% endfor %}
+{% endblock %}
+
+

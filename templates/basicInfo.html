@@ -1,0 +1,9 @@
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block main %}
+    <h2><p>{{ name }}</p></h2>
+    <h2>￥: {{ price }}</h2>
+    <h2>ID: {{ id }}</h2>
+{% endblock %}

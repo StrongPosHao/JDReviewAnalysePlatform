@@ -59,33 +59,33 @@
           </div><!-- /.container-fluid -->
       </nav>
 
-  {% block left_navigator %}
-      <div class="left-navigator">
-        <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="left-item"><a href="#" data-toggle="collapse" data-target="#items">Notebook
-              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="margin-left: 90px"></span></a>
-            <ul class="nav nav-pills nav-stacked collapse in" id="items">
-                <li role="presentation" class="inner-item"><a href={{ url_for('configuration') }}>
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 15px"></span>Configuration</a></li>
-                <li role="presentation" class="inner-item"><a href={{ url_for('price') }}>
-                    <span class="glyphicon glyphicon-yen" aria-hidden="true" style="margin-right: 15px"></span>Price</a></li>
-            </ul>
-          <li role="presentation" class="left-item"><a href="#" data-toggle="collapse" data-target="#items1">Reviews
-              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="margin-left: 100px"></span></a>
-            <ul class="nav nav-pills nav-stacked collapse in" id="items1">
-                <li role="presentation" class="inner-item"><a href={{ url_for('content') }}>
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true" style="margin-right: 15px"></span>Content</a></li>
-                <li role="presentation" class="inner-item"><a href="#">
-                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 15px"></span>Analysis</a></li>
-            </ul>
+{#  {% block left_navigator %}#}
+{#      <div class="left-navigator">#}
+{#        <ul class="nav nav-pills nav-stacked">#}
+{#          <li role="presentation" class="left-item"><a href="#" data-toggle="collapse" data-target="#items">Notebook#}
+{#              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="margin-left: 90px"></span></a>#}
+{#            <ul class="nav nav-pills nav-stacked collapse in" id="items">#}
+{#                <li role="presentation" class="inner-item"><a href={{ url_for('configuration') }}>#}
+{#                    <span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 15px"></span>Configuration</a></li>#}
+{#                <li role="presentation" class="inner-item"><a href={{ url_for('price') }}>#}
+{#                    <span class="glyphicon glyphicon-yen" aria-hidden="true" style="margin-right: 15px"></span>Price</a></li>#}
+{#            </ul>#}
+{#          <li role="presentation" class="left-item"><a href="#" data-toggle="collapse" data-target="#items1">Reviews#}
+{#              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="margin-left: 100px"></span></a>#}
+{#            <ul class="nav nav-pills nav-stacked collapse in" id="items1">#}
+{#                <li role="presentation" class="inner-item"><a href={{ url_for('content') }}>#}
+{#                    <span class="glyphicon glyphicon-comment" aria-hidden="true" style="margin-right: 15px"></span>Content</a></li>#}
+{#                <li role="presentation" class="inner-item"><a href="#">#}
+{#                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 15px"></span>Analysis</a></li>#}
+{#            </ul>#}
     {#        <ul class="nav nav-pills nav-stacked collapse" id="items">#}
     {#            <li role="presentation" class="inner-item"><a href="#">Reviews</a></li>#}
     {#        </ul>#}
-          </li>
-
-      </li>
-    </ul>
-  {% endblock %}
+{#          </li>#}
+{##}
+{#      </li>#}
+{#    </ul>#}
+{#  {% endblock %}#}
 
 
 

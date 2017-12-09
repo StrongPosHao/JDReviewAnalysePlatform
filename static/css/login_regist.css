@@ -1,5 +1,6 @@
 form.form-horizontal {
-    width: 300px;
+    width: 100px;
+    text-align: center;
     margin: 0 auto;
 }
 
@@ -11,4 +12,9 @@ form.form-horizontal {
 .logo {
     width: 200px;
     height: 50px;
+}
+
+.login-input {
+    width: 100px;
+    margin: 0 auto;
 }

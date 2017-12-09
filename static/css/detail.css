@@ -1,0 +1,16 @@
+
+.showArea {
+    width: 300px;
+    height: 200px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    border: 1px solid #ff0000;
+    background: darkblue;
+    /*border-style: solid;*/
+}
+
+
+
+
+

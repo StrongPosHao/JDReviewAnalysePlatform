@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Product Detail{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+    <script src="{{ url_for('static', filename='js/detail.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="showArea container">
+        <hr>
+        <iframe src="{{ url_for("basicInfo", _external=True, id = id) }}" name="show_frame" frameborder="0" scrolling="no" class="showFrame" width="600px" height="300px">
+        </iframe>
+        <hr>
+    </div>
+
+    <hr>
+    <ul class="nav nav-tabs infobar">
+      <li role="presentation"><a href="{{ url_for("basicInfo", _external=True, id = id) }}" target="show_frame">基本信息</a></li>
+      <li role="presentation"><a href="{{ url_for("configuration", _external=True, id=id) }}" target="show_frame">配置信息</a></li>
+      <li role="presentation"><a href="{{ url_for("review", _external=True, id=id) }}" target="show_frame">商品评论</a></li>
+      <li role="presentation"><a href="#">情感分析</a></li>
+    </ul>
+{% endblock %}

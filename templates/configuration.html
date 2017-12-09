@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block title %}Configuration{% endblock %}
+{% block title %}{% endblock %}
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
@@ -8,9 +6,11 @@
 {% endblock %}
 
 {% block main %}
-    <h3 class="page-title">Configuration</h3>
-  {% for line in configuration %}
-      {{ line }}<br />
-  {% endfor %}
+    <h4>
+{#        {{ infomation }}#}
+        {% for line in infomation %}
+            {{ line }}<br>
+    </h4>
+        {% endfor %}
 
 {% endblock %}
