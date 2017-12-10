@@ -8,18 +8,76 @@
 {% endblock %}
 
 {% block main %}
-    <div class="showArea container">
-        <hr>
-        <iframe src="{{ url_for("basicInfo", _external=True, id = id) }}" name="show_frame" frameborder="0" scrolling="no" class="showFrame" width="600px" height="300px">
-        </iframe>
-        <hr>
+    <div class="showNav">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#basicInfo" data-toggle="tab">
+                     基本信息
+                </a>
+            </li>
+                <li><a href="#configInfo" data-toggle="tab">配置信息</a></li>
+                <li><a href="#review" data-toggle="tab">商品评论</a></li>
+                <li><a href="#numAnaly" data-toggle="tab">数值分析</a></li>
+                <li><a href="#textAnaly" data-toggle="tab">文本分析</a></li>
+        </ul>
     </div>
-
-    <hr>
-    <ul class="nav nav-tabs infobar">
-      <li role="presentation"><a href="{{ url_for("basicInfo", _external=True, id = id) }}" target="show_frame">基本信息</a></li>
-      <li role="presentation"><a href="{{ url_for("configuration", _external=True, id=id) }}" target="show_frame">配置信息</a></li>
-      <li role="presentation"><a href="{{ url_for("review", _external=True, id=id) }}" target="show_frame">商品评论</a></li>
-      <li role="presentation"><a href="#">情感分析</a></li>
-    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="basicInfo">
+            <h2><p>{{ name }}</p></h2>
+            <h2>￥: {{ price }}</h2>
+            <h2>ID: {{ id }}</h2>
+            <h2>链接: <a href="https://item.jd.com/{{ id }}.html" target="_blank">https://item.jd.com/{{ id }}.html</a></h2>
+        </div>
+        <div class="tab-pane fade" id="configInfo">
+            {% for i in information.split('\r\n') %}
+                {{ i }}<br>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="review">
+             {% for review in reviews %}
+                <ul>
+                    <li>
+                        <div class="review-group">
+                            <p></p>
+                            <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;{{ review.userExpValue }}</p>
+                            <p class="review-content">{{ review.content }}</p>
+                            <div class="review-useful" align="right">
+                                <table width="100%">
+                                    <tr>
+                                        <td align="left" width="50%">
+                                            {{ review.product_type }}
+                                        </td>
+                                        <td align="right" width="50%">
+                                            {{ review.time }}&nbsp;&nbsp;&nbsp;
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{ review.score }}&nbsp;&nbsp;&nbsp;
+                                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;{{ review.replyCount }}&nbsp;&nbsp;&nbsp;
+                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&nbsp;{{ review.usefulVoteCount }}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <hr>
+             {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="numAnaly">
+            <p>数值分析功能正在施工中...</p>
+        </div>
+        <div class="tab-pane fade" id="textAnaly">
+            <p>文本分析功能正在施工中...</p>
+        </div>
+    </div>
+{#    <div class="tab-content" id="basicInfo">#}
+{##}
+{#    </div>#}
+{#    #}
+{#    <hr>#}
+{#    <ul class="nav nav-tabs infobar">#}
+{#      <li role="presentation"><a href="" target="show_frame">基本信息</a></li>#}
+{#      <li role="presentation"><a href="{{ url_for("configuration", _external=True, id=id) }}" target="show_frame">配置信息</a></li>#}
+{#      <li role="presentation"><a href="{{ url_for("review", _external=True, id=id) }}" target="show_frame">商品评论</a></li>#}
+{#      <li role="presentation"><a href="#">情感分析</a></li>#}
+{#    </ul>#}
 {% endblock %}

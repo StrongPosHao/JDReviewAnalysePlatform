@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="searchResult">
+        {% for product in products %}
+            <a href="http://127.0.0.1:5000/detail/{{ product.id }}">
+                <h4>{{ product.id }}</h4>
+                <h4>{{ product.name }}</h4>
+            </a>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

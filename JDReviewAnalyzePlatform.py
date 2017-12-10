@@ -2,6 +2,7 @@
 
 from flask import Flask,render_template,request,redirect,url_for,session, g
 from exts import db
+from sqlalchemy import or_
 import config
 from models import Reviews,Product,User
 import socket
@@ -89,12 +90,21 @@ def basicInfo(id):
 
 @app.route('/detail/<id>')
 def product_detail(id):
-    return render_template('detail.html', id = id)
+    basicInfo = Product.query.filter(Product.id == id).first()
+    reviews = Reviews.query.filter(Reviews.product_id == id).all()
+    return render_template('detail.html', id = id, name = basicInfo.name, price = basicInfo.price,
+                           information = basicInfo.information,  reviews = reviews)
 
 @app.route('/review/<id>')
 def review(id):
     reviews = Reviews.query.filter(Reviews.product_id == id).all()
     return render_template('review.html', reviews = reviews)
+
+@app.route('/search/')
+def search():
+    info = request.args.get('product')
+    products = Product.query.filter(or_(Product.id.contains(info), Product.name.contains(info))).order_by("-id")
+    return render_template('search.html', products = products)
 
 @app.context_processor
 def my_context_processor():

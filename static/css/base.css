@@ -10,6 +10,7 @@
     margin: 0 auto;
     overflow: hidden;
     padding: 10px;
+    background: #ffffff;
 }
 p{ word-wrap:break-word; word-break:normal; }
 
@@ -23,6 +24,7 @@ nav {
 
 ul {
     margin-top: -5px;
+    list-style: none;
 }
 
 .page-title{
@@ -33,17 +35,25 @@ ul {
     position: absolute;
     left: 20px;
     top: 70px;
-    width: 250px;
+    width: 380px;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+    background-color: white;
+    margin-top: -15px;
+    margin-left: -15px;
 }
 
 .inner-item {
     position: absolute;
     left: 35px;
     margin-top: 10px;
+    width: 345px;
 }
 
 .left-item {
     text-align: left;
+}
+
+body {
+    background-color: #f3f3f3;
 }
