@@ -57,3 +57,11 @@ ul {
 body {
     background-color: #f3f3f3;
 }
+
+#myCarousel {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    left: 400px;
+    top: -900px;
+}

@@ -126,55 +126,64 @@ def my_before_request():
 
 #breakpoint
 def insertDB():
-   folders = os.listdir(r'D:/Programming/PyCharm workspace/JDReviewAnalyzePlatform/static/Data/')
-   i = 0
-   for id in folders:
-       with codecs.open(r'D:/Programming/PyCharm workspace/JDReviewAnalyzePlatform/static/Data/' + id + '/basicInfo.txt',
+    foler_path = r'C:/Users/lanti/Desktop/JDReviewAnalyse/PythonCrawler/Data/'
+    folders = os.listdir(foler_path)
+    with open(r'D:/Courses/zhuanyeshixun2/breakpoint.txt', 'r') as f:
+        breakpoint = int(f.read())
+    for i in range(breakpoint, len(folders)):
+        id = folders[i]
+        print str(i) + '\n'
+        with open(r'D:/Courses/zhuanyeshixun2/breakpoint.txt', 'w') as f:
+            f.write(str(i))
+        with codecs.open(foler_path + id + '/basicInfo.txt',
                         'r', encoding='utf-8') as f:
-           info = f.read().split("--------------------------------------------------------------------------------------------------------")
-           productName = info[0].strip()
-           price = float(info[1].strip())
-           productConfig = info[2]
-           product = Product(id = id, information = productConfig, name = productName, price = price)
-           db.session.add(product)
-           db.session.commit()
-       with codecs.open(r'D:/Programming/PyCharm workspace/JDReviewAnalyzePlatform/static/Data/' + id + '/reviews.txt', 'r', encoding='utf-8') as f:
-           reviews = f.read().split("-------------------------------------------------------------------------------------------------------------------------------------------------------------\r\n")
-           for review in reviews:
-               data = review.split("\r\n")
-               if data[0] == "":
-                   break
-               try:
-                   content = data[0]  # Review content
-                   productId = id
+            info = f.read().split("--------------------------------------------------------------------------------------------------------")
+        # try:
+        productName = info[0].strip()
+        price = float(info[1].strip())
+        productConfig = info[2]
+        # except Exception, e:
+        #    continue
+        product = Product(id = id, information = productConfig, name = productName, price = price)
+        db.session.add(product)
+        db.session.commit()
+        with codecs.open(foler_path + id + '/reviews.txt', 'r', encoding='utf-8') as f:
+            reviews = f.read().split("-------------------------------------------------------------------------------------------------------------------------------------------------------------\r\n")
+            for review in reviews:
+                data = review.split("\r\n")
+                if data[0] == "":
+                    break
+                try:
+                    content = data[0]  # Review content
+                    productId = id
                    # print "productId: " + productId + '\n'
-                   score = int(data[2].split(':')[1])       # Review score
+                    score = int(data[2].split(':')[1])       # Review score
                    # print "score: " + str(score) + '\n'
-                   creationTime = data[3].split(':')[1]  # Review creationTime
+                    creationTime = data[3].split(':')[1]  # Review creationTime
                    # print "creationTime: " + creationTime + '\n'
-                   userfulCount = int(data[4].split(':')[1])  # Review usefulCount
+                    userfulCount = int(data[4].split(':')[1])  # Review usefulCount
                    # print "userfulCount: " + str(userfulCount) + '\n'
-                   expValue = int(data[5].split(':')[1])  # Review expValue
+                    expValue = int(data[5].split(':')[1])  # Review expValue
                    # print 'expValue: ' + str(expValue) + '\n'
-                   images = int(data[6].split(':')[1])  # Review images
+                    images = int(data[6].split(':')[1])  # Review images
                    # print "images: " + str(images) + '\n'
-                   length = int(data[7].split(':')[1])  # Review length
+                    length = int(data[7].split(':')[1])  # Review length
                    # print "length: " + str(length) + '\n'
-                   count = int(data[8].split(':')[1])  # Review reply count
+                    count = int(data[8].split(':')[1])  # Review reply count
                    # print "count: " + str(count) + '\n'
-                   afterComment = int(data[9].split(':')[1])  # IsAfterComment
+                    afterComment = int(data[9].split(':')[1])  # IsAfterComment
                    # print "afterComment: " + str(afterComment) + '\n'
-                   productType = data[10].split(':')[1]  # Review productType
+                    productType = data[10].split(':')[1]  # Review productType
                    # print "productType: " + productType + '\n'
                    # print '------------------------------------------------------------------------------------------------\n'
-               except Exception, e:
-                   continue
-               comment = Reviews(product_id=productId, content=content, score=score, time=creationTime,
+                except Exception, e:
+                    continue
+                comment = Reviews(product_id=productId, content=content, score=score, time=creationTime,
                                  usefulVoteCount=userfulCount,
                                  userExpValue=expValue, images=images, length=length, replyCount=count,
                                  afterComment=afterComment, product_type=productType)
-               db.session.add(comment)
-               db.session.commit()
+                db.session.add(comment)
+                db.session.commit()
 
 if __name__ == '__main__':
     # app.run(host=socket.gethostbyname(socket.gethostname()), port=5000)
